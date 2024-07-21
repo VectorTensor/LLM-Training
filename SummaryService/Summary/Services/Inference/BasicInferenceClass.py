@@ -3,7 +3,7 @@ from transformers import AutoTokenizer
 from transformers import GenerationConfig
 from datasets import load_dataset
 
-class BasicInference:
+class BasicInferenceClass:
     def __init__(self,dataset,model_name):
         self._dataset = dataset
         self._modelName = model_name
@@ -38,7 +38,7 @@ class BasicInference:
 
         inputs = self._tokenizer(prmpt, return_tensors='pt')
         output = self._tokenizer.decode(
-            self._model(
+            self._model.generate(
 
 
             inputs["input_ids"],

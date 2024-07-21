@@ -1,5 +1,5 @@
 
-from BasicInference import BasicInference
+from .BasicInference import BasicInference
 
 
 class OneShot(BasicInference):
