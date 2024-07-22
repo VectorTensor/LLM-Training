@@ -12,3 +12,5 @@ Used JWT for bearer token authentication
 (api/v1/oneshot) -> One shot learning
 
 (api/v1/fewshot) -> Few shot learning
+
+(api/token) -> Get token
