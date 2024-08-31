@@ -1,11 +1,12 @@
 from datasets import load_dataset
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, GenerationConfig, TrainingArguments, Trainer
+from transformers import GenerationConfig, TrainingArguments, Trainer
 import torch
 import time
 import evaluate
 import pandas as pd
 import numpy as np
 from peft import LoraConfig, get_peft_model, TaskType
+
 
 
 def print_number_of_trainable_model_parameters(model):
@@ -93,9 +94,9 @@ class PEFTModelWrapper:
         tokenizer.save_pretrained(peft_model_path)
         self._peft_trainer.model.save_pretrained(peft_model_path)
 
-    def rouge_score(self, d):
-        dialogues = self._tokenized_datasets[d][0:10]['dialogue']
-        human_baseline_summaries = self._tokenized_datasets[d][0:10]['summary']
+    def rouge_score(self, d, dataset):
+        dialogues = dataset[d][0:10]['dialogue']
+        human_baseline_summaries = dataset[d][0:10]['summary']
 
         peft_model_summaries = []
 
