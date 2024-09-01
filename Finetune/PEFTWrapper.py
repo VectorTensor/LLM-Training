@@ -126,8 +126,8 @@ class PEFTModelWrapper:
 
         return peft_model_results
 
-    def train_rouge(self):
-        return self.rouge_score('train')
+    def train_rouge(self,dataset):
+        return self.rouge_score('train',dataset)
 
-    def test_rouge(self):
-        return self.rouge_score('test')
+    def test_rouge(self,dataset):
+        return self.rouge_score('test',dataset)
